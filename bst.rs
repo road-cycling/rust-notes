@@ -67,7 +67,6 @@ impl BST {
     
     fn level_order_traversal_map(node: Option<Box<BST>>) {
 
-
         let mut queue: VecDeque<Box<BST>> = VecDeque::new();
         queue.push_back(node.unwrap_or(BST::bst_on_heap(0)));
 
@@ -83,12 +82,12 @@ impl BST {
                 print!("{} ", head.value);
 
                 match head.left_node {
-                    Some(mut left_node) => queue.push_back(left_node),
+                    Some(left_node) => queue.push_back(left_node),
                     _ => continue,
                 }
 
                 match head.right_node {
-                    Some(mut right_node) => queue.push_back(right_node),
+                    Some(right_node) => queue.push_back(right_node),
                     _ => continue,
                 }
 
